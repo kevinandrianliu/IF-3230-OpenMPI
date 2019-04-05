@@ -12,8 +12,10 @@ Cara Penggunaan Program
 Pembagian Tugas
 -----
 - Bella Destiana Junaidi (13516070): Pembuatan laporan dan source code
+    -  mengerjakan main program(implementasi MPI pada main)
 
 - Kevin Andrian Liwinata (13516118): Pembuatan source code
+    - mengerjakan fungsi-fungsi pembantu(rng, max, sort)
  
 
 Deskripsi Solusi Paralel
