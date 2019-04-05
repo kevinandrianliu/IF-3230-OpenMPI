@@ -20,7 +20,7 @@ Pembagian Tugas
 
 Deskripsi Solusi Paralel
 -----
-Pada radix sort, sebuah data dipecah ke dalam beberapa radix tertentu sebelum digabung menjadi sebuah hasil tertentu. Hal ini dapat dicapai dalam OpenMPI menggunakan fungsi-fungsi seperti MPI_Scatter untuk memecah data menjadi radix-radix, dan MPI_Gather untuk menggabungkan data yang telah dipecah dan diurutkan sebelumnya. Sebelum melakukan pemecahan, diperlukan inisiasi menggunakan MPI_Init, serta menentukan communicator dengan MPI_Comm_rank dan MPI_Comm_size.
+Pada radix sort, sebuah data dipecah ke dalam beberapa radix tertentu sebelum digabung menjadi sebuah hasil tertentu. Hal ini dapat dicapai dalam OpenMPI menggunakan fungsi-fungsi seperti MPI_Scatter untuk memecah data menjadi radix-radix, dan MPI_Gather untuk menggabungkan data yang telah dipecah dan diurutkan sebelumnya. Sebelum melakukan pemecahan, diperlukan inisiasi menggunakan MPI_Init, serta menentukan communicator dengan MPI_Comm_rank untuk *assign* suatu proses dengan id tertentu(maksimum adalah jumlah proses-1) dan MPI_Comm_size untuk meng-*assign* proses yang dibutuhkan.
 
 
 Analisis Solusi
