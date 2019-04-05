@@ -6,7 +6,7 @@ Cara Penggunaan Program
 
 2. Menggunakan perintah make untuk mencompile program di src
 
-3. Menjalankan program dengan perintah <code>mpirun -np <P> --hostfile mpi_hostfile mpi_radix_sort <N> --bind-to core:overload-allowed</code>, dimana <P> merupakan jumlah thread yang dipakai dan <N> merupakan jumlah elemen array yang dipakai
+3. Menjalankan program dengan perintah <code>mpirun -np [P] --hostfile mpi_hostfile mpi_radix_sort [N] --bind-to core:overload-allowed</code>, dimana [P] merupakan jumlah thread yang dipakai dan [N] merupakan jumlah elemen array yang dipakai
 
 
 Pembagian Tugas
