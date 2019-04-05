@@ -1,4 +1,4 @@
-# Praktikum 1 IF3230 - OpenMPI Radix Sort
+# Praktikum 2 IF3230 - OpenMPI Radix Sort
 
 Cara Penggunaan Program
 -----
@@ -25,9 +25,9 @@ Pada radix sort, sebuah data dipecah ke dalam beberapa radix tertentu sebelum di
 
 Analisis Solusi
 -----
-Solusi ini memanfaatkan MPI_Scatter dan MPI_Gather sebagai fungsi OpenMPI utama untuk menjalankan radix sort. MPI_Scatter dilakukan untuk membagi proses menjadi thread, dan MPI_Gather untuk menyatukan thread-thread yang terpisah.
+Solusi ini memanfaatkan MPI_Scatter dan MPI_Gather sebagai fungsi OpenMPI utama untuk menjalankan radix sort. MPI_Scatter dilakukan untuk membagi data ke proses-proses yang ada secara berbeda(tidak ada data yang sama dalam satu proses), dan MPI_Gather untuk menyatukan data-data yang terpisah ke dalam suatu proses mengerjakan hal selanjutnya.
 
-Pada proses ini digunakan 4 thread untuk mengoptimasi waktu. Untuk ukuran data yang besar, dapat digunakan lebih dari 4 thread untuk mempercepat kinerja, namun ada beberapa kasus di mana jumlah thread yang terlalu banyak menyebabkan proses menjadi lebih lambat, sehingga harus berhati-hati untuk memilih jumlah thread yang akan dipakai.
+Pada proses ini digunakan 4 proses untuk mengoptimasi waktu. Untuk ukuran data yang besar, dapat digunakan lebih dari 4 proses untuk mempercepat kinerja, namun ada beberapa kasus di mana jumlah thread yang terlalu banyak menyebabkan proses menjadi lebih lambat, sehingga harus berhati-hati untuk memilih jumlah proses yang akan dipakai.
 
 Pengukuran Kinerja
 -----
