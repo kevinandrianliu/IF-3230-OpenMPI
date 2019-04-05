@@ -97,13 +97,6 @@ int main(int argc, char **argv)
 			arr[j*s+i] = arr[j*s+i]%(2*n/p)+(j*2*n/p);
 		}
 	}
-
-	//external input file
-	FILE * fout;
-	fout = fopen("input","w");
-	for(i=0;i<n;i++)
-		fprintf(fout,"%d\n",arr[i]);
-	fclose(fout);
     }
 
     //init array lokal
