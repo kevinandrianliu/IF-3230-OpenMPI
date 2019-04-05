@@ -10,6 +10,7 @@
 #define MASTER 0
 using namespace std;
 
+//function to get array
 void rng(int* arr, int n) {
     int seed = 13515070;
     srand(seed);
@@ -19,7 +20,7 @@ void rng(int* arr, int n) {
 }
 
   
-// A utility function to get maximum value in arr[] 
+//function to get max value
 int getMax(int arr[], int n) 
 { 
     int mx = arr[0]; 
@@ -29,49 +30,44 @@ int getMax(int arr[], int n)
     return mx; 
 } 
   
-// A function to do counting sort of arr[] according to 
-// the digit represented by exp. 
+// counting sort procedure according to the digit represented by exp 
 void countSort(int arr[], int n, int exp) 
 { 
     int output[n]; // output array 
     int i, count[10] = {0}; 
   
-    // Store count of occurrences in count[] 
+    //store count of occurrences in count[] 
     for (i = 0; i < n; i++) 
         count[ (arr[i]/exp)%10 ]++; 
   
-    // Change count[i] so that count[i] now contains actual 
-    //  position of this digit in output[] 
+    // change count[i] so that count[i] now contains actual position of this digit in output[] 
     for (i = 1; i < 10; i++) 
         count[i] += count[i - 1]; 
   
-    // Build the output array 
+    // output array 
     for (i = n - 1; i >= 0; i--) 
     { 
         output[count[ (arr[i]/exp)%10 ] - 1] = arr[i]; 
         count[ (arr[i]/exp)%10 ]--; 
     } 
   
-    // Copy the output array to arr[], so that arr[] now 
-    // contains sorted numbers according to current digit 
+    // copy the output array to arr[]
     for (i = 0; i < n; i++) 
         arr[i] = output[i]; 
 } 
   
-// The main function to that sorts arr[] of size n using  
-// Radix Sort 
+// procedure that sorts arr[] of size n using radix sort 
 void mpi_radix_sort(int arr[], int n) 
 { 
-    // Find the maximum number to know number of digits 
+    // find the maximum number to know number of digits 
     int m = getMax(arr, n); 
   
-    // Do counting sort for every digit. Note that instead 
-    // of passing digit number, exp is passed. exp is 10^i 
-    // where i is current digit number 
+    // do counting sort for every digit with exp pass, exp is 10^i where i is current digit number 
     for (int exp = 1; m/exp > 0; exp *= 10) 
         countSort(arr, n, exp); 
 } 
-  
+
+//print array content  
 void print(int arr[], int n) 
 { 
     for (int i = 0; i < n; i++) 
@@ -130,7 +126,7 @@ int main(int argc, char **argv)
 	for(i=0;i<n;i++)
 		fprintf(fout,"%d\n",arr[i]);
 	fclose(fout); 
-	printf("time for radix sort for %d elements by %d processes: %f seconds\n",n,p,(stop-start));
+	printf("time for radix sort for %d elements by %d threads: %f seconds\n",n,p,(stop-start));
     }
     MPI_Finalize();
 } 
